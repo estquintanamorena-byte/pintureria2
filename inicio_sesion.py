@@ -80,7 +80,7 @@ boton = tk.Button(
 boton.pack(pady=10)
 
 
-
+print("holaaa")
 
 # ---------------- EJECUTAR ----------------
 
