@@ -10,7 +10,6 @@ ventana.geometry("1366x768")
 # Título
 titulo = tk.Label(ventana, text="INICIO DE SESIÓN", font=("arial", 25))
 titulo.pack(pady=10)
-PRINT("HOLA")
 # Usuario
 titulo_usuario = tk.Label(ventana, text="Ingrese el usuario")
 titulo_usuario.pack()
@@ -81,7 +80,7 @@ boton = tk.Button(
 boton.pack(pady=10)
 
 
-
+print("holaaa")
 
 # ---------------- EJECUTAR ----------------
 
