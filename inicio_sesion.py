@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 
+
 # ---------------- VENTANA PRINCIPAL ----------------
 ventana = tk.Tk()
 ventana.title("SISTEMA GESTIÓN")
@@ -76,7 +77,11 @@ boton = tk.Button(
      
 )
 
+
 boton.pack(pady=10)
+
+
+
 
 # ---------------- EJECUTAR ----------------
 
