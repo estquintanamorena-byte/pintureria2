@@ -1,43 +1,133 @@
 import tkinter as tk
 from tkinter import messagebox
 
-
 # ---------------- VENTANA PRINCIPAL ----------------
+
 ventana = tk.Tk()
-ventana.title("SISTEMA GESTIÓN")
+ventana.title("Sistema Gestión")
 ventana.geometry("1366x768")
+ventana.config(bg="#f0f2f5")  # Fondo gris claro
 
-# Título
-titulo = tk.Label(ventana, text="INICIO DE SESIÓN", font=("arial", 25))
+# ---------------- HEADER ----------------
+
+header = tk.Frame(
+    ventana,
+    bg="#1e3a8a",   # Azul
+    height=80
+)
+
+header.pack(fill="x")
+
+titulo_header = tk.Label(
+    header,
+    text="SISTEMA DE GESTIÓN",
+    bg="#1e3a8a",
+    fg="white",
+    font=("Arial", 24, "bold")
+)
+
+titulo_header.pack(pady=20)
+
+# ---------------- CONTENEDOR LOGIN ----------------
+
+frame_login = tk.Frame(
+    ventana,
+    bg="white",
+    padx=40,
+    pady=40,
+    bd=2,
+    relief="solid"
+)
+
+frame_login.place(relx=0.5, rely=0.5, anchor="center")
+
+# ---------------- TITULO LOGIN ----------------
+
+titulo = tk.Label(
+    frame_login,
+    text="INICIO DE SESIÓN",
+    bg="white",
+    font=("Arial", 20, "bold")
+)
+
 titulo.pack(pady=10)
-# Usuario
-titulo_usuario = tk.Label(ventana, text="Ingrese el usuario")
-titulo_usuario.pack()
 
-entrada_usuario = tk.Entry(ventana, width=30)
-entrada_usuario.pack(pady=5)
-# Contraseña
-titulo_contra = tk.Label(ventana, text="Ingrese la contraseña")
-titulo_contra.pack()
+# ---------------- USUARIO ----------------
 
-entrada_pass = tk.Entry(ventana, show="*", width=30)
-entrada_pass.pack(pady=5)
+titulo_usuario = tk.Label(
+    frame_login,
+    text="Usuario",
+    bg="white",
+    font=("Arial", 12)
+)
 
-# ---------------- FUNCIÓN PARA NUEVA VENTANA ----------------
+titulo_usuario.pack(anchor="w")
+
+entrada_usuario = tk.Entry(
+    frame_login,
+    width=30,
+    font=("Arial", 12)
+)
+
+entrada_usuario.pack(pady=10)
+
+# ---------------- CONTRASEÑA ----------------
+
+titulo_contra = tk.Label(
+    frame_login,
+    text="Contraseña",
+    bg="white",
+    font=("Arial", 12)
+)
+
+titulo_contra.pack(anchor="w")
+
+entrada_pass = tk.Entry(
+    frame_login,
+    show="*",
+    width=30,
+    font=("Arial", 12)
+)
+
+entrada_pass.pack(pady=10)
+
+# ---------------- FUNCIÓN NUEVA VENTANA ----------------
 
 def abrir_bienvenida():
 
     nueva_ventana = tk.Tk()
     nueva_ventana.title("Bienvenido")
     nueva_ventana.geometry("1366x768")
+    nueva_ventana.config(bg="#f0f2f5")
 
-    mensaje = tk.Label(
+    # Header
+    header2 = tk.Frame(
         nueva_ventana,
-        text="¡Bienvenido!",
-        font=("Arial", 18)
+        bg="#1e3a8a",
+        height=80
     )
 
-    mensaje.pack(expand=True)#Esto nos sirve para que el texto ocupe todo
+    header2.pack(fill="x")
+
+    titulo2 = tk.Label(
+        header2,
+        text="PANEL PRINCIPAL",
+        bg="#1e3a8a",
+        fg="white",
+        font=("Arial", 24, "bold")
+    )
+
+    titulo2.pack(pady=20)
+
+    # Mensaje
+    mensaje = tk.Label(
+        nueva_ventana,
+        text="¡Bienvenido al sistema!",
+        bg="#f0f2f5",
+        font=("Arial", 22)
+    )
+
+    mensaje.pack(expand=True)
 
     nueva_ventana.mainloop()
 
@@ -45,42 +135,37 @@ def abrir_bienvenida():
 
 def validar_acceso():
 
-    usuario = entrada_usuario.get() #aca guara en esta variable lo que el usuario escriba
+    usuario = entrada_usuario.get()
     clave = entrada_pass.get()
 
     if usuario == "admin" and clave == "123":
 
-        
+        ventana.destroy()
 
-        ventana.destroy()   # Cierra login
-
-        abrir_bienvenida()  # Abre nueva ventana
+        abrir_bienvenida()
 
     else:
+
         messagebox.showerror(
             "Error",
             "Usuario o contraseña incorrectos"
         )
 
-
-        
-
 # ---------------- BOTÓN ----------------
 
 boton = tk.Button(
-    ventana,
+    frame_login,
     text="Ingresar",
     command=validar_acceso,
-     bg="#3d32e2",
-     fg="white",
-     
+    bg="#2563eb",
+    fg="white",
+    font=("Arial", 12, "bold"),
+    width=20,
+    height=2,
+    cursor="hand2"
 )
 
-
-boton.pack(pady=10)
-
-
-print("holaaa")
+boton.pack(pady=20)
 
 # ---------------- EJECUTAR ----------------
 
