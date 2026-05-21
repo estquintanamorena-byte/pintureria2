@@ -20,7 +20,7 @@ header.pack(fill="x")
 
 titulo_header = tk.Label(
     header,
-    text="SISTEMA DE GESTIÓN",
+    text="PINTURERIA",
     bg="#1e3a8a",
     fg="white",
     font=("Arial", 24, "bold")
