@@ -1,34 +1,44 @@
+
 import tkinter as tk
 from tkinter import messagebox
 
+
 # ---------------- VENTANA PRINCIPAL ----------------
+
 
 ventana = tk.Tk()
 ventana.title("Sistema Gestión")
 ventana.geometry("1366x768")
 ventana.config(bg="#f0f2f5")  # Fondo gris claro
 
+
 # ---------------- HEADER ----------------
+
 
 header = tk.Frame(
     ventana,
-    bg="#1e3a8a",   # Azul
+    bg="#73d1d6",   # Azul
     height=80
 )
 
+
 header.pack(fill="x")
+
 
 titulo_header = tk.Label(
     header,
-    text="holas",
-    bg="#1e3a8a",
+    text="PINTURERIA",
+    bg="#73d1d6",
     fg="white",
     font=("Arial", 24, "bold")
 )
 
+
 titulo_header.pack(pady=20)
 
+
 # ---------------- CONTENEDOR LOGIN ----------------
+
 
 frame_login = tk.Frame(
     ventana,
@@ -39,9 +49,12 @@ frame_login = tk.Frame(
     relief="solid"
 )
 
+
 frame_login.place(relx=0.5, rely=0.5, anchor="center")
 
+
 # ---------------- TITULO LOGIN ----------------
+
 
 titulo = tk.Label(
     frame_login,
@@ -50,9 +63,12 @@ titulo = tk.Label(
     font=("Arial", 20, "bold")
 )
 
+
 titulo.pack(pady=10)
 
+
 # ---------------- USUARIO ----------------
+
 
 titulo_usuario = tk.Label(
     frame_login,
@@ -61,7 +77,9 @@ titulo_usuario = tk.Label(
     font=("Arial", 12)
 )
 
+
 titulo_usuario.pack(anchor="w")
+
 
 entrada_usuario = tk.Entry(
     frame_login,
@@ -69,9 +87,12 @@ entrada_usuario = tk.Entry(
     font=("Arial", 12)
 )
 
+
 entrada_usuario.pack(pady=10)
 
+
 # ---------------- CONTRASEÑA ----------------
+
 
 titulo_contra = tk.Label(
     frame_login,
@@ -80,7 +101,9 @@ titulo_contra = tk.Label(
     font=("Arial", 12)
 )
 
+
 titulo_contra.pack(anchor="w")
+
 
 entrada_pass = tk.Entry(
     frame_login,
@@ -89,35 +112,44 @@ entrada_pass = tk.Entry(
     font=("Arial", 12)
 )
 
+
 entrada_pass.pack(pady=10)
+
 
 # ---------------- FUNCIÓN NUEVA VENTANA ----------------
 
+
 def abrir_bienvenida():
+
 
     nueva_ventana = tk.Tk()
     nueva_ventana.title("Bienvenido")
     nueva_ventana.geometry("1366x768")
     nueva_ventana.config(bg="#f0f2f5")
 
+
     # Header
     header2 = tk.Frame(
         nueva_ventana,
-        bg="#1e3a8a",
+        bg="#73d1d6",
         height=80
     )
 
+
     header2.pack(fill="x")
+
 
     titulo2 = tk.Label(
         header2,
         text="PANEL PRINCIPAL",
-        bg="#1e3a8a",
+        bg="#73d1d6",
         fg="white",
         font=("Arial", 24, "bold")
     )
 
+
     titulo2.pack(pady=20)
+
 
     # Mensaje
     mensaje = tk.Label(
@@ -127,37 +159,49 @@ def abrir_bienvenida():
         font=("Arial", 22)
     )
 
+
     mensaje.pack(expand=True)
+
 
     nueva_ventana.mainloop()
 
+
 # ---------------- VALIDAR LOGIN ----------------
 
+
 def validar_acceso():
+
 
     usuario = entrada_usuario.get()
     clave = entrada_pass.get()
 
+
     if usuario == "admin" and clave == "123":
+
 
         ventana.destroy()
 
-        abrir_bienvenida()
+
+        import inicio
+
 
     else:
+
 
         messagebox.showerror(
             "Error",
             "Usuario o contraseña incorrectos"
         )
 
+
 # ---------------- BOTÓN ----------------
+
 
 boton = tk.Button(
     frame_login,
     text="Ingresar",
     command=validar_acceso,
-    bg="#2563eb",
+    bg="#73d1d6",
     fg="white",
     font=("Arial", 12, "bold"),
     width=20,
@@ -165,8 +209,11 @@ boton = tk.Button(
     cursor="hand2"
 )
 
+
 boton.pack(pady=20)
 
+
 # ---------------- EJECUTAR ----------------
+
 
 ventana.mainloop()
